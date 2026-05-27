@@ -1,0 +1,113 @@
+.taskDropList {
+  min-height: 280px;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.taskCard {
+  margin-bottom: 14px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  cursor: grab;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.taskCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.taskCard:active {
+  cursor: grabbing;
+}
+
+.taskCard h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.taskCard p {
+  margin: 6px 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.todoStatus {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.inProgressStatus {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.completedStatus {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.taskCard button {
+  margin-top: 12px;
+  margin-right: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  color: #111827;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.taskCard button:hover {
+  background-color: #e5e7eb;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.35;
+}
+
+.cdk-drop-list-dragging .taskCard:not(.cdk-drag-placeholder) {
+  transition: transform 250ms ease;
+}
+
+/* optional to make the inside dark as well*/
+/*
+
+:host-context(.darkMode) .taskCard {
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+:host-context(.darkMode) .taskCard h3,
+:host-context(.darkMode) .taskCard p {
+  color: #ffffff;
+}
+
+:host-context(.darkMode) .taskCard button {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+:host-context(.darkMode) .taskCard button:hover {
+  background-color: #475569;
+}
+  */

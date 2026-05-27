@@ -1,0 +1,146 @@
+<div class="dashboardContainer" [class.darkMode]="isDarkMode">
+  <div class="headerSection">
+    <div>
+      <h1>Task Dashboard</h1>
+      <p>Manage your tasks efficiently.</p>
+    </div>
+    <div class="themeSwitch" (click)="toggleTheme()">
+      <div class="switchTrack">
+        <div
+          class="switchThumb"
+          [class.active]="isDarkMode">
+        </div>
+      </div>
+    </div>
+  </div>
+  @if (isLoading) {
+    <p class="loadingMessage">Loading tasks...</p>
+  }
+
+  @if (errorMessage) {
+    <p class="errorMessage">{{ errorMessage }}</p>
+  }
+
+  <div class="summarySection">
+    <div class="summaryCard">
+      <strong>Total</strong>
+      <span>{{ taskList.length }}</span>
+    </div>
+
+    <div class="summaryCard">
+      <strong>Todo</strong>
+      <span>{{ todoTaskCount }}</span>
+    </div>
+
+    <div class="summaryCard">
+      <strong>In Progress</strong>
+      <span>{{ inProgressTaskCount }}</span>
+    </div>
+
+    <div class="summaryCard">
+      <strong>Completed</strong>
+      <span>{{ completedTaskCount }}</span>
+    </div>
+  </div>
+  <!--add task completion statistics and data visualization-->
+  <div class="completionStats">
+    <div class="completionHeader">
+      <strong>Task Completion</strong>
+      <span>{{ completionPercentage }}%</span>
+    </div>
+
+    <div class="progressBar">
+      <div
+        class="progressFill"
+        [style.width.%]="completionPercentage">
+      </div>
+    </div>
+  </div>
+
+  <div class="filterSection">
+    <button type="button" (click)="selectedFilter = 'All'">All</button>
+    <button type="button" (click)="selectedFilter = 'Todo'">Todo</button>
+    <button type="button" (click)="selectedFilter = 'In Progress'">In Progress</button>
+    <button type="button" (click)="selectedFilter = 'Completed'">Completed</button>
+  </div>
+
+  <div class="topControls">
+    <div class="sortSection">
+      <label>
+        Sort By
+        <select [(ngModel)]="selectedSort">
+          <option>None</option>
+          <option>Title</option>
+          <option>Due Date</option>
+          <option>Priority</option>
+        </select>
+      </label>
+    </div>
+
+    <button
+      type="button"
+      class="createTaskButton"
+      [disabled]="showTaskForm"
+      (click)="showTaskForm = true">
+      + Create New Task
+    </button>
+  </div>
+
+  @if (selectedTask) {
+    <p>Editing: {{ selectedTask.title }}</p>
+  }
+
+  @if (showTaskForm || selectedTask) {
+    <app-task-form
+      [selectedTask]="selectedTask"
+      (taskCreated)="handleTaskCreated($event)"
+      (taskUpdated)="handleTaskUpdated($event)"
+      (formClosed)="handleFormClosed()">
+    </app-task-form>
+  }
+
+  <div class="statusBoard">
+
+    @if (selectedFilter === 'All' || selectedFilter === 'Todo') {
+    <section class="statusColumn">
+      <h2>Todo</h2>
+      <app-task-list
+        [taskList]="todoTasks"
+        [columnStatus]="taskStatus.Todo"
+        (taskDeleted)="handleTaskDeleted($event)"
+        (taskSelectedForEdit)="handleTaskSelectedForEdit($event)"
+        (tasksReordered)="handleTasksReordered($event)"
+        (taskStatusChanged)="handleTaskUpdated($event)">
+      </app-task-list>
+    </section>
+    }
+
+    @if (selectedFilter === 'All' || selectedFilter === 'In Progress') {
+    <section class="statusColumn">
+      <h2>In Progress</h2>
+      <app-task-list
+        [taskList]="inProgressTasks"
+        [columnStatus]="taskStatus.InProgress"
+        (taskDeleted)="handleTaskDeleted($event)"
+        (taskSelectedForEdit)="handleTaskSelectedForEdit($event)"
+        (tasksReordered)="handleTasksReordered($event)"
+        (taskStatusChanged)="handleTaskUpdated($event)">
+      </app-task-list>
+    </section>
+    }
+
+    @if (selectedFilter === 'All' || selectedFilter === 'Completed') {
+    <section class="statusColumn">
+      <h2>Completed</h2>
+      <app-task-list
+        [taskList]="completedTasks"
+        [columnStatus]="taskStatus.Completed"
+        (taskDeleted)="handleTaskDeleted($event)"
+        (taskSelectedForEdit)="handleTaskSelectedForEdit($event)"
+        (tasksReordered)="handleTasksReordered($event)"
+        (taskStatusChanged)="handleTaskUpdated($event)">
+      </app-task-list>
+    </section>
+    }
+  </div>
+</div>

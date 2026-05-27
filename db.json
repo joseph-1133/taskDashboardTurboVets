@@ -1,0 +1,86 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Finish Angular assignment",
+      "description": "Build the first version of the task dashboard",
+      "dueDate": "2026-05-25",
+      "priority": "High",
+      "status": "Todo",
+      "category": "Work"
+    },
+    {
+      "id": "2",
+      "title": "Review requirements",
+      "description": "Read assignment details",
+      "dueDate": "2026-05-28",
+      "priority": "High",
+      "status": "In Progress",
+      "category": "Work"
+    },
+    {
+      "id": "3",
+      "title": "Deploy application",
+      "description": "Prepare production deployment",
+      "dueDate": "2026-05-30",
+      "priority": "Medium",
+      "status": "In Progress",
+      "category": "Work"
+    },
+    {
+      "id": "4",
+      "title": "Prepare presentation",
+      "description": "Create slides for project review",
+      "dueDate": "2026-06-01",
+      "priority": "Low",
+      "status": "Todo",
+      "category": "School"
+    },
+    {
+      "id": "5",
+      "title": "Write documentation",
+      "description": "Complete README and setup guide",
+      "dueDate": "2026-06-02",
+      "priority": "Medium",
+      "status": "In Progress",
+      "category": "Work"
+    },
+    {
+      "id": "6",
+      "title": "Research Angular CDK",
+      "description": "Study drag and drop features",
+      "dueDate": "2026-06-03",
+      "priority": "Medium",
+      "status": "Completed",
+      "category": "Learning"
+    },
+    {
+      "id": "7",
+      "title": "Go to gym",
+      "description": "Leg day workout",
+      "dueDate": "2026-05-27",
+      "priority": "Medium",
+      "status": "Todo",
+      "category": "Health"
+    },
+    {
+      "id": "8",
+      "title": "Organize desk",
+      "description": "Clean and arrange workspace",
+      "dueDate": "2026-05-29",
+      "priority": "Low",
+      "status": "Completed",
+      "category": "Home"
+    },
+    {
+      "id": "9",
+      "title": "Update portfolio",
+      "description": "Add latest Angular project",
+      "dueDate": "2026-06-05",
+      "priority": "Low",
+      "status": "Completed",
+      "category": "Personal"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

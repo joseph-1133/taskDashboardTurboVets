@@ -1,0 +1,27 @@
+<div
+  cdkDropList
+  [id]="columnStatus"
+  [cdkDropListData]="taskList"
+  [cdkDropListConnectedTo]="['Todo', 'In Progress', 'Completed']"
+  class="taskDropList"
+  (cdkDropListDropped)="dropTask($event)">
+  @for (task of taskList; track task.id) {
+    <div class="taskCard" cdkDrag>
+      <div class="dragHandle" cdkDragHandle>
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+          <p>Due Date: {{ task.dueDate }}</p>
+          <p>Priority: {{ task.priority }}</p>
+          <p>
+            Status:
+            <span [class]="getStatusClass(task.status)">
+              {{ task.status }}
+            </span>
+          </p>
+          <p>Category: {{ task.category }}</p>
+          <button type="button" (click)="editTask(task)">Edit</button>
+          <button type="button" (click)="deleteTask(task.id)">Delete</button>
+        </div>
+    </div>
+  }
+</div>
