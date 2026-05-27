@@ -3,7 +3,7 @@ import { Task } from '../models/task';
 import { TaskStatus } from '../models/taskStatus';
 //inject HttpClient into TaskService
 import { HttpClient } from '@angular/common/http';
-//fetch tsks from the API
+//fetch tasks from the API
 import { Observable } from 'rxjs';
 
 @Injectable({

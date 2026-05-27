@@ -1,17 +1,12 @@
 <div class="taskFormContainer">
-    <div class="formHeader">
+  <div class="formHeader">
     <h2>
       {{ selectedTask ? 'Edit Task' : 'Create New Task' }}
     </h2>
 
-    <button
-      type="button"
-      class="closeButton"
-      (click)="closeForm()">
-      ✕
-    </button>
+    <button type="button" class="closeButton" (click)="closeForm()">✕</button>
   </div>
-  
+
   @if (errorMessage) {
     <p class="errorMessage">
       {{ errorMessage }}
@@ -24,12 +19,23 @@
     </label>
     <label>
       Description
-      <textarea name="description" [(ngModel)]="description" placeholder="Enter task description" required></textarea>
+      <textarea
+        name="description"
+        [(ngModel)]="description"
+        placeholder="Enter task description"
+        required
+      ></textarea>
     </label>
 
     <label>
       Due Date
-      <input type="date" [(ngModel)]="dueDate" name="dueDate" (click)="openDatePicker($event)" required>
+      <input
+        type="date"
+        [(ngModel)]="dueDate"
+        name="dueDate"
+        (click)="openDatePicker($event)"
+        required
+      />
     </label>
 
     <label>
@@ -52,7 +58,13 @@
 
     <label>
       Category
-      <input type="text" name="category" [(ngModel)]="category" placeholder="Enter category" required />
+      <input
+        type="text"
+        name="category"
+        [(ngModel)]="category"
+        placeholder="Enter category"
+        required
+      />
     </label>
 
     <button type="submit">
