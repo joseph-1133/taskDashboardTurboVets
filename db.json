@@ -6,7 +6,7 @@
       "description": "Build the first version of the task dashboard",
       "dueDate": "2026-05-25",
       "priority": "High",
-      "status": "Todo",
+      "status": "In Progress",
       "category": "Work"
     },
     {
@@ -15,7 +15,7 @@
       "description": "Read assignment details",
       "dueDate": "2026-05-28",
       "priority": "High",
-      "status": "In Progress",
+      "status": "Todo",
       "category": "Work"
     },
     {
@@ -80,6 +80,15 @@
       "priority": "Low",
       "status": "Completed",
       "category": "Personal"
+    },
+    {
+      "id": "N6lZaQataqo",
+      "title": "test3",
+      "description": "demo for test 3",
+      "dueDate": "2026-05-29",
+      "priority": "Medium",
+      "status": "In Progress",
+      "category": "Work"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
