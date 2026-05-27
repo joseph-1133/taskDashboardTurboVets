@@ -1,6 +1,6 @@
 # Task Dashboard - TurboVets
 
-A modern Angular task management dashboard built with Angular, TypeScript, JSON Server, and Angular CDK Drag & Drop.
+A modern task management dashboard built with Angular 21, TypeScript, JSON Server, and Angular CDK Drag & Drop.
 
 ## Features
 
@@ -17,6 +17,15 @@ A modern Angular task management dashboard built with Angular, TypeScript, JSON 
 - Loading and error states
 - Mock REST API using JSON Server
 - Unit tests for key functionality
+- Dark/light theme toggle
+- Task completion statistics and progress visualization
+
+## Bonus Features
+
+- Dark/light theme toggle
+- Task completion statistics and visual progress indicator
+- Responsive Kanban layout
+- Loading and error handling states
 
 ## Technologies Used
 
@@ -25,7 +34,8 @@ A modern Angular task management dashboard built with Angular, TypeScript, JSON 
 - SCSS
 - Angular CDK Drag & Drop
 - JSON Server
-- Vitest / Angular Test Runner
+- Vitest
+- Angular TestBed
 
 ## Install Dependencies
 
@@ -52,7 +62,7 @@ http://localhost:3000/tasks
 Open a second terminal and run:
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 Then open:
@@ -64,7 +74,7 @@ http://localhost:4200
 ## Run Unit Tests
 
 ```bash
-ng test
+npx ng test
 ```
 
 Current Result:
@@ -123,7 +133,14 @@ Another challenge was supporting drag-and-drop status changes across columns. Th
 
 ## Future Improvements
 
-With more time, I would add a dark/light theme toggle, stronger form validation, more detailed unit tests, and optional data visualizations for task completion trends.
+With more time, I would consider adding:
+
+- Authentication and user accounts
+- GraphQL integration using Apollo Angular
+- Real-time updates using WebSockets
+- More advanced analytics and reporting
+- Additional unit and integration tests
+- Backend persistence with a production database
 
 ## Running Locally
 
@@ -142,7 +159,7 @@ npx json-server --watch db.json --port 3000
 3. Start Angular
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 4. Open the application
@@ -150,5 +167,3 @@ ng serve
 ```text
 http://localhost:4200
 ```
-
--Task completion statistics and visual progress indicator
