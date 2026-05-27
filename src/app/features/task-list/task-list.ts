@@ -59,4 +59,15 @@ export class TaskList {
     }
     return 'statusBadge completedStatus';
   }
+
+  //confirmation before deleting
+  pendingDeleteTaskId: number | string | null = null;
+
+  confirmDelete(taskId: number | string): void {
+    this.pendingDeleteTaskId = taskId;
+  }
+
+  cancelDelete(): void {
+    this.pendingDeleteTaskId = null;
+  }
 }

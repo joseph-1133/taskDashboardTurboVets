@@ -35,7 +35,10 @@ p {
 }
 
 .summaryCard {
-  padding: 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
   border-radius: 14px;
   background-color: #ffffff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
@@ -149,7 +152,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 

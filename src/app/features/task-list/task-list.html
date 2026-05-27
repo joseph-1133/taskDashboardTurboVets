@@ -20,7 +20,34 @@
           </p>
           <p>Category: {{ task.category }}</p>
           <button type="button" (click)="editTask(task)">Edit</button>
-          <button type="button" (click)="deleteTask(task.id)">Delete</button>
+          
+            @if (pendingDeleteTaskId === task.id) {
+
+              <button
+                type="button"
+                class="confirmDeleteButton"
+                (click)="deleteTask(task.id)">
+                Confirm
+              </button>
+
+              <button
+                type="button"
+                class="cancelDeleteButton"
+                (click)="cancelDelete()">
+                Cancel
+              </button>
+
+            } @else {
+
+              <button
+                type="button"
+                class="deleteButton"
+                (click)="confirmDelete(task.id)">
+                Delete
+              </button>
+
+            }
+
         </div>
     </div>
   }

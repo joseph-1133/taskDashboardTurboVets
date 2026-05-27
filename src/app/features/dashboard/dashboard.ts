@@ -155,7 +155,17 @@ export class Dashboard {
 
   //use API delete in Dashboard
   handleTaskDeleted(taskId: number | string): void {
-    this.taskList = this.taskList.filter(task => task.id !== taskId);
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this task?'
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    this.taskList = this.taskList.filter(
+      task => task.id !== taskId
+    );
 
     this.taskService.deleteTaskFromApi(taskId).subscribe({
       next: () => {
@@ -163,6 +173,7 @@ export class Dashboard {
       },
       error: error => {
         console.error('Delete failed:', error);
+        this.errorMessage = 'Failed to delete task.';
       }
     });
   }
@@ -193,6 +204,12 @@ export class Dashboard {
   // create handleTaskSelectedForEdit()
   handleTaskSelectedForEdit(task: Task): void {
     this.selectedTask = task;
+    this.showTaskForm = true;
+
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth',
+    });
   }
   // drag and release
   get todoTasks(): Task[] {

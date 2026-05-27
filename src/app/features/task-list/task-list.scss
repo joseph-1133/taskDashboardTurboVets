@@ -89,6 +89,31 @@
   transition: transform 250ms ease;
 }
 
+/*Delete task confirmation*/
+.deleteButton {
+  background-color: #fee2e2;
+  color: #b91c1c !important;
+}
+
+.deleteButton:hover {
+  background-color: #fecaca;
+}
+
+.confirmDeleteButton {
+  background-color: #dc2626 !important;
+  color: white !important;
+  border: 1px solid #dc2626;
+}
+
+.confirmDeleteButton:hover {
+  background-color: #b91c1c;
+}
+
+.cancelDeleteButton {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
 /* optional to make the inside dark as well*/
 /*
 
