@@ -79,8 +79,8 @@ export class Dashboard {
   get todoTaskCount(): number {
    return this.taskList.filter(task => task.status === TaskStatus.Todo).length;
   }
-  // light / dark mode
 
+  // light / dark mode
   isDarkMode = false;
   toggleTheme(): void {
   this.isDarkMode = !this.isDarkMode;
@@ -93,7 +93,7 @@ export class Dashboard {
   }
 }
 
-  // create filter and sort task list
+  // create filter task list
   get filteredTaskList(): Task[] {
     let filteredTasks = [...this.taskList];
 
@@ -103,35 +103,7 @@ export class Dashboard {
       );
     }
 
-    if (this.selectedSort === 'Title') {
-      filteredTasks.sort((a, b) =>
-        a.title.localeCompare(b.title)
-      );
-    }
-
-    // sort from earliest to latest
-    if (this.selectedSort === 'Due Date') {
-      filteredTasks.sort(
-        (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
-      );
-    }
-
-    // sort by priority
-    if (this.selectedSort === 'Priority') {
-      const priorityOrder = {
-        High: 1,
-        Medium: 2,
-        Low: 3,
-      };
-
-      filteredTasks.sort(
-        (a, b) =>
-          priorityOrder[a.priority as keyof typeof priorityOrder] -
-          priorityOrder[b.priority as keyof typeof priorityOrder]
-      );
-    }
-
-    return filteredTasks;
+    return this.sortTasks(filteredTasks);
   }
 
   //add task completion statistics and data visualization
